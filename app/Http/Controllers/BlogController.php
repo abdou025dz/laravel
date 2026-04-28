@@ -52,7 +52,7 @@ class BlogController extends Controller
             'title'   => 'required|min:3|max:255',
             'content' => 'required|min:10',
         ]);
-
+ 
         // Ici on simule l'enregistrement (pas de BDD)
         // En réel : Article::create($request->all());
 

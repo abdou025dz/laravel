@@ -3,23 +3,19 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+// --- ADD THESE TWO LINES ---
+use App\Services\NotificationInterface;
+use App\Services\EmailNotification;
+// ---------------------------
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     */
     public function register(): void
     {
-        //
-        $this->app->singleton('welcome', function ($app) {
-            return new \App\Services\WelcomeService();
-        });
+        // Now Laravel knows what these classes are!
+        $this->app->bind(NotificationInterface::class, EmailNotification::class);
     }
 
-    /**
-     * Bootstrap any application services.
-     */
     public function boot(): void
     {
         //
